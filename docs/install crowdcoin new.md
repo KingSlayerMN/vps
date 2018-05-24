@@ -1,4 +1,4 @@
-**Pre-requisites:**
+##Pre-requisites:##
 1. new VPS Ubuntu 16.04 (DON'T TRY THIS SCRIPT WITH OTHER MASTERNODE COINS INSTALLED or accept unpredictable results)
 2. VPS IP Address
 3. follow the official setup guide to page 2 (https://crowdcoin.site/guides/QUICK_CROWDCOIN_MASTERNODE_SETUP.pdf)
@@ -7,17 +7,19 @@ to get the masternode private key and the TxID and TxIndex
 
 Please copy and paste (or type) everything exactly as written behind "type:" to the end of the line.
 
-Login into your VPS with the root account.
+##Login into your VPS with the root privileges.
 
-Step 0) Type: apt-get update && apt-get upgrade -y && apt-get dist-upgrade -y 
-		if prompted "tools.conf (Y/I/N/O/D/Z) [default=N] ?" just press enter
-		once finished rebott the VPS
+Step 0) Type: `apt-get update && apt-get upgrade -y && apt-get dist-upgrade -y`
+		if prompted for "tools.conf (Y/I/N/O/D/Z) [default=N] ?" just press enter
+		once finished reboot the VPS
+		
+		##Login with root privileges and continue
 		
 Step 1) Type: `git clone https://github.com/KingSlayerMN/vps.git && cd vps`
 
 Step 2) Type: `./install.sh -p crowd -c 1 -n 4 -s`
 
-Step 3) Once install script has finished 
+Step 3) Once install script has finished
 
 		Type: `nano /etc/masternodes/crowd_n1.conf`
 		
@@ -34,9 +36,13 @@ Step 3) Once install script has finished
 		Now get some current addnodes from https://www.cryptopia.co.nz/CoinInfo, type CRC in the search field and 
 		click on "Connections" of Crowdcoin. 
 		Select the addnodes shown on the left into the clipboard, paste them to the end of the file, 
-		save the file with ctrl+x, press y and enter
+		now you can save the file with ctrl+x, press y and enter
 		
-Step 4) To activate the masternode type: activate_masternodes_crowd and wait for the new MN to be fully synced
+Step 4) To activate the masternode 
+
+		Type: `activate_masternodes_crowd` 
+		
+		and wait for the new MN to be fully synced
 
 Step 5) Continue with the official setup guide at page 6 "STARTING YOUR MASTERNODE (Windows)" and come back here.
 		Omit the chapter "Test and Troubleshooting" in the official setup guide.
@@ -45,12 +51,16 @@ Step 6) To activate Sentinel
 		Type: `export SENTINEL_CONFIG=/usr/share/sentinel/crowd1_sentinel.conf; /usr/share/sentinelenv/bin/python /usr/share/sentinel/bin/sentinel.py`
 		
 Step 7) If it works without error, add that command as cronjob: 
-		Type: crontab -e 
+		
+		Type: `crontab -e`
+		
 		and place the string below in one line at the bottom of the file:
-		Type: `* * * * * export SENTINEL_CONFIG=/usr/share/sentinel/crowd1_sentinel.conf; /usr/share/sentinelenv/bin/python /usr/share/sentinel/bin/sentinel.py 2>&1 >> /var/log/sentinel/sentinel-cron.log`
+		
+		Type one single line: `* * * * * export SENTINEL_CONFIG=/usr/share/sentinel/crowd1_sentinel.conf; /usr/share/sentinelenv/bin/python /usr/share/sentinel/bin/sentinel.py 2>&1 >> /var/log/sentinel/sentinel-cron.log`
 		
 Step 8) to make the command line interface (crowdcoin-cli) easier accessible add the string below to your .bashrc 
-		type: `echo "alias crc1='crowdcoin-cli -conf=/etc/masternodes/crowd_n1.conf $1'" >> ~/.bashrc`
+		
+		Type: `echo "alias crc1='crowdcoin-cli -conf=/etc/masternodes/crowd_n1.conf $1'" >> ~/.bashrc`
 		
 Step 9) to activate the alias added in step 8) type: `. ~/.bashrc`
 Done!
@@ -81,5 +91,7 @@ Wait until `crc1 mnsync status` output is like
 }
 ```
 To check if the sentinel is running you can run this command:
+
 `tail -f /var/log/sentinel/sentinel-cron.log`
+
 press ctrl+c to exit
