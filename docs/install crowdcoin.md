@@ -1,6 +1,6 @@
-
+---
 ## **Pre-requisites:**
-- new VPS Ubuntu 16.04 (DON'T TRY THIS SCRIPT WITH OTHER MASTERNODE COINS INSTALLED)
+- new VPS Ubuntu 16.04 (DON'T TRY THIS SCRIPT WITH OTHER MASTERNODE COINS INSTALLED or accept unpredictable results)
 - Make a note of your **VPS IP Address**
 - follow the official setup guide to page 2 (https://crowdcoin.site/guides/QUICK_CROWDCOIN_MASTERNODE_SETUP.pdf)
 to get the **masternode private key** and the **TxID** and **TxIndex** before starting this guide.
@@ -8,7 +8,6 @@ to get the **masternode private key** and the **TxID** and **TxIndex** before st
 __Please copy and paste (or type) everything exactly as written behind "$" but not the "$"!__
 
 ---
-
 __Login into your VPS with the root privileges.__
 
 ### Step 0) 
@@ -34,7 +33,7 @@ Here is a quick explaination about the parameter
 ```diff
 -p = project to install - we want crowd
 -c = number of masternodes to install (yes, you could install multiple MN's if you have multiple IP's)
--n = network 4=IPv4 6=IPv6 (not supported by crowdcoin) 
+-n = network 4=IPv4 6=IPv6 (IPv6 is not supported by crowdcoin) 
 -s = install sentinel
 ```
 ### Step 3) 
@@ -128,6 +127,10 @@ $ . ~/.bashrc
 
 Configuration files are stored in: /etc/masternodes
 Data are stored in: /var/lib/masternodes
+This setup will run the daemon as a service with an unprivileged user account which does not even
+can be used to login.
+
+---
 
 Because of the alias we have created you can now type the commands as shown below 
 ```sh
@@ -138,7 +141,22 @@ $ crc1 getblockcount
 ```
 
 ---
+
+Use these commands to start, stop and review the status of the service.
+
+| Command | Action |
+| ------ | ------ |
+| $ service crowd_n1 start | will start the masternode as a service |
+| $ service crowd_n1 stop | will stop the masternode service |
+| $ service crowd_n1 status | will show the status and some statistics of the service |
+The advantage of running the masternode as service is that it will be monitored
+by systemd and automatically restart if it ever crashes.  
+Also in case of a reboot of your VPS the masternode will be started automatically.
+
+---
+
 Only if you wish the make use of watch you need to include the path to the conf-file together with crowdcoin-cli
+The tool `watch` does not use the alias therefore you have to add the path to the config file
 ```sh
 $ watch crowdcoin-cli -conf=/etc/masternodes/crowd_n1.conf mnsync status
 ```
