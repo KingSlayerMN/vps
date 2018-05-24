@@ -1,4 +1,6 @@
+
 ---
+
 ## **Pre-requisites:**
 - new VPS Ubuntu 16.04 (DON'T TRY THIS SCRIPT WITH OTHER MASTERNODE COINS INSTALLED or accept unpredictable results)
 - Make a note of your **VPS IP Address**
@@ -7,7 +9,9 @@ to get the **masternode private key** and the **TxID** and **TxIndex** before st
 
 __Please copy and paste (or type) everything exactly as written behind "$" but not the "$"!__
 
+
 ---
+
 __Login into your VPS with the root privileges.__
 
 ### Step 0) 
