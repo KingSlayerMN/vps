@@ -6,6 +6,7 @@
 3. follow the official setup guide to page 2 (https://crowdcoin.site/guides/QUICK_CROWDCOIN_MASTERNODE_SETUP.pdf)
 to get the masternode private key and the TxID and TxIndex
 ---
+
 Please copy and paste (or type) everything exactly as written behind "type:" to the end of the line.
 
 Login into your VPS with the root account.
@@ -16,14 +17,18 @@ Step 0) Type: apt-get update && apt-get upgrade -y && apt-get dist-upgrade -y
 		
 Step 1) Type: `git clone https://github.com/KingSlayerMN/vps.git && cd vps`
 
-Step 2) Type: ./install.sh -p crowd -c 1 -n 4 -s 
+Step 2) Type: `./install.sh -p crowd -c 1 -n 4 -s`
 
 Step 3) Once install script has finished type: nano /etc/masternodes/crowd_n1.conf
 		add your IP address here bind=[#NEW_IPv4_ADDRESS_FOR_MASTERNODE_NUMBER:::1]:12875 
-		so it looks like bind=44.33.22.11:12875
+		so it looks like:
+		
+		`bind=44.33.22.11:12875`
 		
 		now paste your masternode private keys here masternodeprivkey=HERE_GOES_YOUR_MASTERNODE_KEY_FOR_MASTERNODE_crowd_1
-		so it looks like masternodeprivkey=93HaYBVUCYjEMeeH1Y4sBGLALQZE1Yc1K64xiqgX37tGBDQL8Xg
+		so it looks like 
+		
+		`masternodeprivkey=93HaYBVUCYjEMeeH1Y4sBGLALQZE1Yc1K64xiqgX37tGBDQL8Xg`
 		
 		Now get some current addnodes from https://www.cryptopia.co.nz/CoinInfo, type CRC in the search field and 
 		click on "Connections" of Crowdcoin. 
@@ -75,4 +80,3 @@ Wait until "crc1 mnsync status" output is like
 To check if the sentinel is running you can run this command:
 tail -f /var/log/sentinel/sentinel-cron.log
 press ctrl+c to exit
-```
