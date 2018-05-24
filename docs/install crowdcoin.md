@@ -99,7 +99,7 @@ Now it is time to activate Sentinel (It is important to have this in one line)
 $ export SENTINEL_CONFIG=/usr/share/sentinel/crowd1_sentinel.conf; /usr/share/sentinelenv/bin/python /usr/share/sentinel/bin/sentinel.py
 ```
 ### Step 7) 
-If it works without error, you can add that command to crontob to run every minute: 
+If it works without error, you can add that command to crontab to run every minute: 
 ```sh
 $ crontab -e
 ```
@@ -131,7 +131,7 @@ $ . ~/.bashrc
 
 Configuration files are stored in: /etc/masternodes  
 Data are stored in: /var/lib/masternodes  
-This setup will run the daemon as a service with an unprivileged user account  
+This setup will run the daemon as a service with an non-privileged user account  
 which does not even can be used to login to your VPS.
 
 ---
@@ -158,7 +158,7 @@ Use these commands to start, stop and review the status of the service.
 
 
 The advantage of running the masternode as service is that it will be monitored  
-by systemd and automatically restart if it ever crashes.  
+by systemd and automatically restarted if it ever crashes.  
 Also in case of a reboot of your VPS the masternode will be started automatically.
 
 ---
