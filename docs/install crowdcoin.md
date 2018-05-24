@@ -20,7 +20,7 @@ To update your VPS with the latest software run this command:
 $ apt-get update && apt-get upgrade -y && apt-get dist-upgrade -y
 ```
 if prompted for `tools.conf (Y/I/N/O/D/Z) [default=N] ?` just press enter
-once finished reboot your VPS and
+once finished reboot your VPS and  
 **Login with root privileges and continue**
 		
 ### Step 1) 
@@ -53,9 +53,9 @@ now paste your masternode private keys to `masternodeprivkey=HERE_GOES_YOUR_MAST
 ```css
 masternodeprivkey=93HaYBVUCYjEMeeH1Y4sBGLALQZE1Yc1K64xiqgX37tGBDQL8Xg
 ```
-To ensure your wallet is getting synced we should add some addnodes.
-At https://www.cryptopia.co.nz/CoinInfo, type `crc` in the search field and click on "Connections" of Crowdcoin. 
-Select the addnodes shown on the left into the clipboard, paste them to the end of the file.
+To ensure your wallet is getting synced we should add some addnodes.  
+At https://www.cryptopia.co.nz/CoinInfo, type `crc` in the search field and click on "Connections" of Crowdcoin.  
+Select the addnodes shown on the left into the clipboard, paste them to the end of the file.  
 Now you can save the file with:
 ```sh
 ctrl+x 
@@ -89,9 +89,9 @@ to quit press
 $ ctrl + c
 ```
 ### Step 5) 
-Continue with the official setup guide at page 6 "STARTING YOUR MASTERNODE (Windows)" and come back here.
+Continue with the official setup guide at page 6 "STARTING YOUR MASTERNODE (Windows)" and come back here.  
 Just make sure the collateral payment has gotten __15 confirmations__ before you try to start the masternode.  
-(you can safely omit the chapter "Test and Troubleshooting" in the official setup guide)
+(you can safely omit the chapter "Test and Troubleshooting" in the official setup guide)  
 		
 ### Step 6) 
 Now it is time to activate Sentinel (It is important to have this in one line)
@@ -129,10 +129,10 @@ $ . ~/.bashrc
 ---
 ### Some basic information about this setup.
 
-Configuration files are stored in: /etc/masternodes
-Data are stored in: /var/lib/masternodes
-This setup will run the daemon as a service with an unprivileged user account which does not even
-can be used to login.
+Configuration files are stored in: /etc/masternodes  
+Data are stored in: /var/lib/masternodes  
+This setup will run the daemon as a service with an unprivileged user account  
+which does not even can be used to login to your VPS.
 
 ---
 
@@ -153,13 +153,15 @@ Use these commands to start, stop and review the status of the service.
 | $ service crowd_n1 start | will start the masternode as a service |
 | $ service crowd_n1 stop | will stop the masternode service |
 | $ service crowd_n1 status | will show the status and some statistics of the service |
-The advantage of running the masternode as service is that it will be monitored
+
+
+The advantage of running the masternode as service is that it will be monitored  
 by systemd and automatically restart if it ever crashes.  
 Also in case of a reboot of your VPS the masternode will be started automatically.
 
 ---
 
-Only if you wish the make use of watch you need to include the path to the conf-file together with crowdcoin-cli
+Only if you wish the make use of watch you need to include the path to the conf-file together with crowdcoin-cli  
 The tool `watch` does not use the alias therefore you have to add the path to the config file
 ```sh
 $ watch crowdcoin-cli -conf=/etc/masternodes/crowd_n1.conf mnsync status
