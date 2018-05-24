@@ -90,7 +90,7 @@ $ ctrl + c
 ```
 ### Step 5) 
 Continue with the official setup guide at page 6 "STARTING YOUR MASTERNODE (Windows)" and come back here.
-Just make sure the collateral payment has gotten __15 confirmations__ before you try to start the masternode. 
+Just make sure the collateral payment has gotten __15 confirmations__ before you try to start the masternode.  
 (you can safely omit the chapter "Test and Troubleshooting" in the official setup guide)
 		
 ### Step 6) 
@@ -99,7 +99,7 @@ Now it is time to activate Sentinel (It is important to have this in one line)
 $ export SENTINEL_CONFIG=/usr/share/sentinel/crowd1_sentinel.conf; /usr/share/sentinelenv/bin/python /usr/share/sentinel/bin/sentinel.py
 ```
 ### Step 7) 
-If it works without error, you can add that command as cronjob: 
+If it works without error, you can add that command to crontob to run every minute: 
 ```sh
 $ crontab -e
 ```
