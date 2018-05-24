@@ -13,15 +13,15 @@ Step 0) Type: `apt-get update && apt-get upgrade -y && apt-get dist-upgrade -y`
 		if prompted for "tools.conf (Y/I/N/O/D/Z) [default=N] ?" just press enter
 		once finished reboot the VPS
 		
-		##Login with root privileges and continue
+		**Login with root privileges and continue**
 		
-Step 1) Type: `git clone https://github.com/KingSlayerMN/vps.git && cd vps`
+Step 1) Type: **`git clone https://github.com/KingSlayerMN/vps.git && cd vps`**
 
 Step 2) Type: `./install.sh -p crowd -c 1 -n 4 -s`
 
 Step 3) Once install script has finished
 
-		Type: `nano /etc/masternodes/crowd_n1.conf`
+		Type: **`nano /etc/masternodes/crowd_n1.conf`**
 		
 		add your IP address here bind=[#NEW_IPv4_ADDRESS_FOR_MASTERNODE_NUMBER:::1]:12875 
 		so it looks like:
