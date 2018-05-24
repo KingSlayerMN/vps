@@ -1,10 +1,11 @@
-```fix
-Pre-requisites:
+---
+
+**Pre-requisites:**
 1. new VPS Ubuntu 16.04 (DON'T TRY THIS SCRIPT WITH OTHER MASTERNODE COINS INSTALLED or accept unpredictable results)
 2. VPS IP Address
 3. follow the official setup guide to page 2 (https://crowdcoin.site/guides/QUICK_CROWDCOIN_MASTERNODE_SETUP.pdf)
 to get the masternode private key and the TxID and TxIndex
-
+---
 Please copy and paste (or type) everything exactly as written behind "type:" to the end of the line.
 
 Login into your VPS with the root account.
@@ -13,7 +14,7 @@ Step 0) Type: apt-get update && apt-get upgrade -y && apt-get dist-upgrade -y
 		if prompted "tools.conf (Y/I/N/O/D/Z) [default=N] ?" just press enter
 		once finished rebott the VPS
 		
-Step 1) Type: git clone https://github.com/KingSlayerMN/vps.git && cd vps
+Step 1) Type: `git clone https://github.com/KingSlayerMN/vps.git && cd vps`
 
 Step 2) Type: ./install.sh -p crowd -c 1 -n 4 -s 
 
