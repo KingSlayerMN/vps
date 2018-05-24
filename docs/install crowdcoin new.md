@@ -17,7 +17,10 @@ Step 1) Type: `git clone https://github.com/KingSlayerMN/vps.git && cd vps`
 
 Step 2) Type: `./install.sh -p crowd -c 1 -n 4 -s`
 
-Step 3) Once install script has finished type: nano /etc/masternodes/crowd_n1.conf
+Step 3) Once install script has finished 
+
+		Type: `nano /etc/masternodes/crowd_n1.conf`
+		
 		add your IP address here bind=[#NEW_IPv4_ADDRESS_FOR_MASTERNODE_NUMBER:::1]:12875 
 		so it looks like:
 		
@@ -39,31 +42,33 @@ Step 5) Continue with the official setup guide at page 6 "STARTING YOUR MASTERNO
 		Omit the chapter "Test and Troubleshooting" in the official setup guide.
 		
 Step 6) To activate Sentinel 
-		Type: export SENTINEL_CONFIG=/usr/share/sentinel/crowd1_sentinel.conf; /usr/share/sentinelenv/bin/python /usr/share/sentinel/bin/sentinel.py
+		Type: `export SENTINEL_CONFIG=/usr/share/sentinel/crowd1_sentinel.conf; /usr/share/sentinelenv/bin/python /usr/share/sentinel/bin/sentinel.py`
 		
 Step 7) If it works without error, add that command as cronjob: 
 		Type: crontab -e 
 		and place the string below in one line at the bottom of the file:
-		Type: * * * * * export SENTINEL_CONFIG=/usr/share/sentinel/crowd1_sentinel.conf; /usr/share/sentinelenv/bin/python /usr/share/sentinel/bin/sentinel.py 2>&1 >> /var/log/sentinel/sentinel-cron.log
+		Type: `* * * * * export SENTINEL_CONFIG=/usr/share/sentinel/crowd1_sentinel.conf; /usr/share/sentinelenv/bin/python /usr/share/sentinel/bin/sentinel.py 2>&1 >> /var/log/sentinel/sentinel-cron.log`
 		
 Step 8) to make the command line interface (crowdcoin-cli) easier accessible add the string below to your .bashrc 
-		type: echo "alias crc1='crowdcoin-cli -conf=/etc/masternodes/crowd_n1.conf $1'" >> ~/.bashrc
+		type: `echo "alias crc1='crowdcoin-cli -conf=/etc/masternodes/crowd_n1.conf $1'" >> ~/.bashrc`
 		
-Step 9) to activate the alias added in step 8) type: . ~/.bashrc
+Step 9) to activate the alias added in step 8) type: `. ~/.bashrc`
 Done!
 
 Configuration files are in: /etc/masternodes
 Data are in: /var/lib/masternodes
 
 Instead of crowdcoin-cli masternode status you can now type 
-crc1 masternode status, 
-crc1 getinfo, 
-crc1 mnsync status, 
-crc1 getblockcount
-If you wish the make use of watch you need to include the path to the conf-file together with crowdcoin-cli
-eg. watch crowdcoin-cli -conf=/etc/masternodes/crowd_n1.conf mnsync status
+`crc1 masternode status`
+`crc1 getinfo`
+`crc1 mnsync status`
+`crc1 getblockcount`
 
-Wait until "crc1 mnsync status" output is like 
+If you wish the make use of watch you need to include the path to the conf-file together with crowdcoin-cli
+eg. `atch crowdcoin-cli -conf=/etc/masternodes/crowd_n1.conf mnsync status`
+
+Wait until `crc1 mnsync status` output is like 
+```css
 {
   "AssetID": 999,
   "AssetName": "MASTERNODE_SYNC_FINISHED",
@@ -74,7 +79,7 @@ Wait until "crc1 mnsync status" output is like
   "IsSynced": true,
   "IsFailed": false
 }
-
+```
 To check if the sentinel is running you can run this command:
-tail -f /var/log/sentinel/sentinel-cron.log
+`tail -f /var/log/sentinel/sentinel-cron.log`
 press ctrl+c to exit
