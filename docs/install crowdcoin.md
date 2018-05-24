@@ -139,6 +139,8 @@ which does not even can be used to login to your VPS.
 Because of the alias we have created you can now type the commands as shown below 
 ```sh
 $ crc1 masternode status
+$ crc1 masternodelist status <TXid>
+$ crc1 masternodelist full | grep <VPS IP>
 $ crc1 getinfo
 $ crc1 mnsync status
 $ crc1 getblockcount
@@ -170,8 +172,9 @@ $ watch crowdcoin-cli -conf=/etc/masternodes/crowd_n1.conf mnsync status
 ---
 To check the sync status of your masternode
 ```sh
-$ crc1 mnsync status` output
+$ crc1 mnsync status
 ``` 
+The output of a fully synced masternode will look ike this:
 ```css
 {
   "AssetID": 999,
