@@ -1,4 +1,3 @@
-DO NOT USE THIS GUIDE ANY LONGER
 ---
 
 ## **Pre-requisites:**
