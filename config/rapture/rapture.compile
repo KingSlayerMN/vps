@@ -2,7 +2,7 @@
 # this file contains all commands to compile and install the daemon
 add-apt-repository ppa:bitcoin/bitcoin -y
 apt-get update
-apt-get install libdb4.8-dev libdb4.8++-dev -y
+apt-get install libdb4.8-dev libdb4.8++-dev -y --allow-unauthenticated
 
 ./autogen.sh
 ./configure --disable-dependency-tracking --enable-tests=no --without-gui --without-miniupnpc --with-incompatible-bdb CFLAGS="-march=native" LIBS="-lcurl -lssl -lcrypto -lz"
